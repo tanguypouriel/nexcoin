@@ -38,9 +38,12 @@ class ProfileCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_upward)),
                   IconButton(onPressed: () {}, icon: Icon(Icons.arrow_downward)),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.credit_card_outlined)),
+                  IconButton(onPressed: () {}, icon: Icon(Icons.house_outlined)),
                 ],
               ),
             ],
