@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexcoin/feature/home/widgets/assets_card.dart';
 import 'package:nexcoin/feature/home/widgets/profile_card.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,35 +9,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SafeArea(
         child: Scaffold(
-          body: Column(
-            children: const [
+          body: const Column(
+            children: [
               ProfileCard(),
               SizedBox(height: 16),
               Expanded(child: AssetsCard()),
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_filled),
+          bottomNavigationBar: NavigationBar(
+            indicatorColor: Theme.of(context).scaffoldBackgroundColor,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            selectedIndex: 0,
+            destinations: [
+              const NavigationDestination(
+                icon: Icon(PhosphorIconsRegular.storefront),
                 label: 'Home',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.compare_arrows),
+              const NavigationDestination(
+                icon: Icon(PhosphorIconsRegular.arrowsLeftRight),
                 label: 'Swap',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.qr_code_scanner_sharp),
-                label: '',
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                padding: const EdgeInsets.all(10),
+                child: const Icon(
+                  PhosphorIconsRegular.scan,
+                  color: Colors.white,
+                  size: 36,
+                ),
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.history),
-                label: 'History'
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile'
-              ),
+              const NavigationDestination(icon: Icon(Icons.history), label: 'History'),
+              const NavigationDestination(icon: Icon(PhosphorIconsRegular.user), label: 'Profile'),
             ],
           ),
         ),

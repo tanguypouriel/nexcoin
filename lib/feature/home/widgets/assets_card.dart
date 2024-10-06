@@ -8,9 +8,12 @@ class AssetsCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: mediumMargin),
         margin: const EdgeInsets.symmetric(horizontal: mediumMargin),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(largeRadius),
-          color: Theme.of(context).colorScheme.outline,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(largeRadius),
+            topRight: Radius.circular(largeRadius),
+          ),
+          color: Color(0xff222224),
         ),
         child: Column(
           children: [

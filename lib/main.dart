@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'NexCoin',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: Colors.black,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xff9168e8),
+        ),
+        scaffoldBackgroundColor: const Color(0xff0b0b0d),
       ),
       home: const HomeScreen(),
     );
