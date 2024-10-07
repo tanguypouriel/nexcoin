@@ -38,6 +38,10 @@ class AssetsCardState extends State<AssetsCard> with TickerProviderStateMixin {
           children: [
             TabBar(
               controller: _tabController,
+              dividerHeight: 0,
+              indicatorColor: const Color(0xff7541e1),
+              indicatorSize: TabBarIndicatorSize.label,
+              labelColor: Colors.white,
               tabs: [
                 const Tab(text: 'Crypto'),
                 const Tab(text: 'NFTs'),
