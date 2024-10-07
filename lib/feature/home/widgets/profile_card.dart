@@ -10,7 +10,7 @@ class ProfileCard extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(36),
+            borderRadius: BorderRadius.circular(largeRadius),
             gradient: const RadialGradient(
               center: Alignment(1, -1),
               radius: 1.2,
@@ -60,9 +60,7 @@ class ProfileCard extends StatelessWidget {
                     icon: const Icon(PhosphorIconsRegular.bell),
                     padding: const EdgeInsets.all(10),
                     color: Colors.white,
-                    style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Color(0xff584886)),
-                    ),
+                    style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color(0xff584886))),
                   ),
                 ],
               ),
@@ -112,7 +110,7 @@ class ProfileCardActionItem extends StatelessWidget {
             icon: Icon(icon),
             padding: const EdgeInsets.all(12),
             color: Colors.white,
-            style: ButtonStyle(
+            style: const ButtonStyle(
               backgroundColor: WidgetStatePropertyAll(Color(0xff7255b1)),
             ),
           ),

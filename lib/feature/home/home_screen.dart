@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
           body: const Column(
             children: [
               ProfileCard(),
-              SizedBox(height: 16),
+              SizedBox(height: 8),
               Expanded(child: AssetsCard()),
             ],
           ),
