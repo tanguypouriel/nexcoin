@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:nexcoin/shared/app_router.dart';
 
 import 'feature/home/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'NexCoin',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xff0b0b0d),
       ),
-      home: const HomeScreen(),
+      routerConfig: _appRouter.config(),
     );
   }
 }

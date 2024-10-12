@@ -27,12 +27,12 @@ class AssetsCardState extends State<AssetsCard> with TickerProviderStateMixin {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: mediumMargin),
         margin: const EdgeInsets.symmetric(horizontal: mediumMargin),
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(largeRadius),
             topRight: Radius.circular(largeRadius),
           ),
-          color: Color(0xff222224),
+          color: colorTheme.cardBackground,
         ),
         child: Column(
           children: [
