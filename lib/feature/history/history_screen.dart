@@ -2,8 +2,6 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:nexcoin/feature/history/widgets/history_item.dart';
 
-import '../shared/bottom_navigation.dart';
-
 @RoutePage()
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({super.key});
@@ -25,7 +23,6 @@ class HistoryScreen extends StatelessWidget {
               HistoryItem(),
             ],
           ),
-          bottomNavigationBar: const BottomNavigation(),
         ),
       );
 }

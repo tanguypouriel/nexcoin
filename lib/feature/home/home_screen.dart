@@ -3,9 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nexcoin/feature/home/widgets/assets_card.dart';
 import 'package:nexcoin/feature/home/widgets/profile_card.dart';
-import 'package:nexcoin/feature/shared/bottom_navigation.dart';
-import 'package:nexcoin/shared/app_router.gr.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -21,7 +18,6 @@ class HomeScreen extends StatelessWidget {
               Expanded(child: AssetsCard()),
             ],
           ),
-          bottomNavigationBar: BottomNavigation(),
         ),
       );
 }
