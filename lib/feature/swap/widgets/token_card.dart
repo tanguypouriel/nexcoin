@@ -1,51 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:nexcoin/shared/theme.dart';
+import 'package:cryptofont/cryptofont.dart';
 
 class TokenCard extends StatelessWidget {
   const TokenCard({super.key});
+
+  static const _secondaryTextColor = Color(0xffc5c7c6);
 
   @override
   Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(color: colorTheme.cardBackground, borderRadius: BorderRadius.circular(largeRadius)),
         padding: const EdgeInsets.all(24),
-        child: SizedBox(
-          height: 120,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Send',
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Text(
+                  'Send',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                ),
+                const Spacer(),
+                Text(
+                  'Amount',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  radius: 26,
+                  child: const Icon(
+                    CryptoFontIcons.eth,
+                    color: Colors.white,
                   ),
-                  const Spacer(),
-                  Text(
-                    'Amount',
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  const SizedBox(width: 100),
-                  const Spacer(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '1.246',
-                        style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: Colors.white),
-                      ),
-                      Text(
-                        'Balance: 25,724',
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+                const Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '1.246',
+                      style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      'Balance: 25,724',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
       );
 }
