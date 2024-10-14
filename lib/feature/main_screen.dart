@@ -12,7 +12,9 @@ class MainScreen extends StatelessWidget {
         routes: const [
           HomeRoute(),
           SwapRoute(),
+          ScanRoute(),
           HistoryRoute(),
+          ProfileRoute(),
         ],
         bottomNavigationBuilder: (_, tabsRouter) => BottomNavigationBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
