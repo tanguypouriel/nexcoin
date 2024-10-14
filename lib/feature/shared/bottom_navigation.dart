@@ -27,6 +27,7 @@ class BottomNavigationState extends State<BottomNavigation> {
           context.router.replace(switch (index) {
             0 => const HomeRoute(),
             1 => const SwapRoute(),
+            3 => const HistoryRoute(),
             _ => throw Exception('Unknown route'),
           });
         },

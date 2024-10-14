@@ -5,8 +5,6 @@ import 'package:cryptofont/cryptofont.dart';
 class TokenCard extends StatelessWidget {
   const TokenCard({super.key});
 
-  static const _secondaryTextColor = Color(0xffc5c7c6);
-
   @override
   Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(color: colorTheme.cardBackground, borderRadius: BorderRadius.circular(largeRadius)),
@@ -17,12 +15,12 @@ class TokenCard extends StatelessWidget {
               children: [
                 Text(
                   'Send',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const Spacer(),
                 Text(
                   'Amount',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
                 ),
               ],
             ),
@@ -48,7 +46,7 @@ class TokenCard extends StatelessWidget {
                     ),
                     Text(
                       'Balance: 25,724',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: _secondaryTextColor),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
                     ),
                   ],
                 ),

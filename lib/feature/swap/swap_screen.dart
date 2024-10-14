@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:nexcoin/feature/shared/bottom_navigation.dart';
 import 'package:nexcoin/feature/swap/widgets/token_card.dart';
 
-import '../../shared/theme.dart';
-
 @RoutePage()
 class SwapScreen extends StatelessWidget {
   const SwapScreen({super.key});
