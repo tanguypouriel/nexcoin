@@ -1,6 +1,10 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:nexcoin/feature/swap/widgets/token_card.dart';
+import 'package:cryptofont/cryptofont.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+
+import '../../model/token.dart';
 
 @RoutePage()
 class SwapScreen extends StatelessWidget {
@@ -18,9 +22,38 @@ class SwapScreen extends StatelessWidget {
           body: Column(
             children: [
               const SizedBox(height: 24),
-              const TokenCard(),
-              const SizedBox(height: 14),
-              const TokenCard(),
+              Stack(
+                children: [
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      TokenCard(
+                        token: Token(name: 'Ethereum', codeName: 'ETH', icon: CryptoFontIcons.eth),
+                        amount: '1.246',
+                        send: true,
+                      ),
+                      const SizedBox(height: 14),
+                      TokenCard(
+                        token: Token(name: 'Bitcoin', codeName: 'BTC', icon: CryptoFontIcons.btc),
+                        amount: '16.750',
+                        send: false,
+                      ),
+                    ],
+                  ),
+                  const Positioned.fill(
+                    child: Center(
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xffc8b3f4),
+                        radius: 28,
+                        child: Icon(
+                          PhosphorIconsRegular.arrowsDownUp,
+                          size: 28,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 28),
               FilledButton(
                 onPressed: () {},

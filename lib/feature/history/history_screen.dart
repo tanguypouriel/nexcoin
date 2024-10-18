@@ -15,12 +15,29 @@ class HistoryScreen extends StatelessWidget {
             foregroundColor: Colors.white,
             automaticallyImplyLeading: false,
           ),
-          body: const Column(
+          body: Column(
             children: [
-              SizedBox(height: 16),
-              HistoryItem(),
-              HistoryItem(),
-              HistoryItem(),
+              const SizedBox(height: 16),
+              HistoryItem(
+                date: 'Sep 7 2024',
+                itemsData: [
+                  HistoryTransactionItemData(value: -589932.14, currency: 'USDT'),
+                  HistoryTransactionItemData(value: 45.5, currency: 'TRX'),
+                ],
+              ),
+              HistoryItem(
+                date: 'May 3 2024',
+                itemsData: [
+                  HistoryTransactionItemData(value: 4057842, currency: 'USDT'),
+                ],
+              ),
+              HistoryItem(
+                date: 'Feb 27 2024',
+                itemsData: [
+                  HistoryTransactionItemData(value: -15712, currency: 'USDT'),
+                  HistoryTransactionItemData(value: 18202, currency: 'USDT'),
+                ],
+              ),
             ],
           ),
         ),

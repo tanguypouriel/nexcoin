@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:nexcoin/shared/theme.dart';
-import 'package:cryptofont/cryptofont.dart';
+
+import '../../../model/token.dart';
 
 class TokenCard extends StatelessWidget {
-  const TokenCard({super.key});
+  const TokenCard({
+    super.key,
+    required this.token,
+    required this.send,
+    required this.amount,
+  });
+
+  final Token token;
+  final bool send;
+  final String amount;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -14,13 +24,15 @@ class TokenCard extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Send',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                  send ? 'Send' : 'Receive',
+                  style:
+                      Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const Spacer(),
                 Text(
                   'Amount',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                  style:
+                      Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
                 ),
               ],
             ),
@@ -28,12 +40,26 @@ class TokenCard extends StatelessWidget {
             Row(
               children: [
                 CircleAvatar(
-                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  backgroundColor: send ? Theme.of(context).colorScheme.primary : const Color(0xfff7931b),
                   radius: 26,
-                  child: const Icon(
-                    CryptoFontIcons.eth,
+                  child: Icon(
+                    token.icon,
                     color: Colors.white,
                   ),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  token.codeName,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
+                const SizedBox(width: 4),
+                const Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.grey,
                 ),
                 const Spacer(),
                 Column(
@@ -41,12 +67,18 @@ class TokenCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '1.246',
-                      style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.white, fontWeight: FontWeight.w600),
+                      amount,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineLarge!
+                          .copyWith(color: Colors.white, fontWeight: FontWeight.w600),
                     ),
                     Text(
                       'Balance: 25,724',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Theme.of(context).colorScheme.onSurface),
                     ),
                   ],
                 ),

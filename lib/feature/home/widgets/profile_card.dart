@@ -26,12 +26,15 @@ class ProfileCard extends StatelessWidget {
               Row(
                 children: [
                   const SizedBox(width: 4),
-                  Container(
-                    width: 42,
-                    height: 42,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 22,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Image.asset(
+                        'assets/memoji.png',
+                        fit: BoxFit.contain,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -57,7 +60,7 @@ class ProfileCard extends StatelessWidget {
                   const Spacer(),
                   IconButton(
                     onPressed: () {},
-                    icon: const Icon(PhosphorIconsRegular.bell),
+                    icon: const Badge(child: Icon(PhosphorIconsRegular.bell)),
                     padding: const EdgeInsets.all(10),
                     color: Colors.white,
                     style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(Color(0xff584886))),

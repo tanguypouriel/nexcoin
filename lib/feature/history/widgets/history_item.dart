@@ -2,8 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:nexcoin/shared/theme.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+
+class HistoryTransactionItemData {
+  final double value;
+  final String currency;
+
+  HistoryTransactionItemData({required this.value, required this.currency});
+}
+
 class HistoryItem extends StatelessWidget {
-  const HistoryItem({super.key});
+  const HistoryItem({super.key, required this.itemsData, required this.date});
+
+  final String date;
+  final List<HistoryTransactionItemData> itemsData;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -12,20 +23,21 @@ class HistoryItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              'Sep 7 2024',
+              date,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: Theme.of(context).colorScheme.onSurface),
             ),
           ),
           const SizedBox(height: 8),
-          const HistoryTransactionItem(),
-          const HistoryTransactionItem(),
+          ...itemsData.map((itemData) => HistoryTransactionItem(data: itemData)),
           const SizedBox(height: 16),
         ],
       );
 }
 
 class HistoryTransactionItem extends StatelessWidget {
-  const HistoryTransactionItem({super.key});
+  const HistoryTransactionItem({super.key, required this.data});
+
+  final HistoryTransactionItemData data;
 
   @override
   Widget build(BuildContext context) => ListTile(
@@ -47,8 +59,8 @@ class HistoryTransactionItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              '-589,932.14 USDT',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.white),
+              '${data.value} ${data.currency}',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: data.value >= 0 ? Colors.green : Colors.white),
             ),
             const SizedBox(height: 8),
             Text(
